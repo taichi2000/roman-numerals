@@ -42,4 +42,9 @@ class RomanNumeralTest {
     public void when7ThenReturnVII() throws Exception {
         assertEquals("VII", new RomanNumeral(7).toString())
     }
+
+    @Test
+    public void when8ThenReturnVIII() throws Exception {
+        assertEquals("VIII", new RomanNumeral(8).toString())
+    }
 }

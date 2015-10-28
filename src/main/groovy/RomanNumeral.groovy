@@ -7,14 +7,17 @@ public class RomanNumeral {
     }
 
     String toString() {
-        if (value < 4)
-            return "I" * value
-        else if (value == 4)
-            return "IV"
-        else if (value == 5)
-            return "V"
-        else if (value == 6)
-            return "VI"
-        else return "VII"
+        switch (value) {
+            case 1..3:
+                return "I" * value
+            case 4:
+                return "IV"
+            case 5:
+                return "V"
+            case 6:
+                return "VI"
+            default:
+                return "VII"
+        }
     }
 }
