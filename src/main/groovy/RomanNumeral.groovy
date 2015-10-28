@@ -12,12 +12,12 @@ public class RomanNumeral {
                 return "I" * value
             case 4:
                 return "IV"
-            case 5:
-                return "V"
-            case 6:
-                return "VI"
+            case 5..8:
+                return "V" + "I" * (value - 5)
+            case 9:
+                return "IX"
             default:
-                return "VII"
+                return "X" + "I" * (value - 10)
         }
     }
 }
