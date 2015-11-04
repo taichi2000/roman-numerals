@@ -7,17 +7,25 @@ public class RomanNumeral {
     }
 
     String toString() {
-        switch (value) {
+        String units = ""
+
+        def mod = value % 10
+
+        switch (mod) {
             case 1..3:
-                return "I" * value
+                units = "I" * mod
+                break
             case 4:
-                return "IV"
+                units = "IV"
+                break
             case 5..8:
-                return "V" + "I" * (value - 5)
+                units = "V" + "I" * (mod - 5)
+                break
             case 9:
-                return "IX"
-            default:
-                return "X" + "I" * (value - 10)
+                units = "IX"
+                break
         }
+
+        return value < 40 ? "X" * (value / 10 ) + units : "XL"
     }
 }

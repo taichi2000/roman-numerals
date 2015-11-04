@@ -23,5 +23,14 @@ class RomanNumeralTest {
         assertEquals("XI", new RomanNumeral(11).toString())
         assertEquals("XII", new RomanNumeral(12).toString())
         assertEquals("XIII", new RomanNumeral(13).toString())
+        assertEquals("XIV", new RomanNumeral(14).toString())
+        assertEquals("XV", new RomanNumeral(15).toString())
+        assertEquals("XVI", new RomanNumeral(16).toString())
+        assertEquals("XVII", new RomanNumeral(17).toString())
+        assertEquals("XVIII", new RomanNumeral(18).toString())
+        assertEquals("XIX", new RomanNumeral(19).toString())
+        assertEquals("XX", new RomanNumeral(20).toString())
+        assertEquals("XXXIX", new RomanNumeral(39).toString())
+        assertEquals("XL", new RomanNumeral(40).toString())
     }
 }
