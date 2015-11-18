@@ -7,35 +7,81 @@ public class RomanNumeral {
     }
 
     String toString() {
-        String units = getRomanUnits()
-
-        def tens = "X" * (value / 10)
-        def lessThanForty = tens + units
-
-        def morethanForty = "XL" + units
-
-        value < 40 ? lessThanForty : (value == 40) ? "XL" : morethanForty
+        getUnidadDeMil() + getCentenas() + getDecenas() + getRomanUnits();
     }
 
-    String getRomanUnits (){
-        def remainingDigits = value % 10
+    String getUnidadDeMil() {
+        def miles = (int) (value/ 1000)
 
-        def units = ""
-        switch (remainingDigits) {
+        "M" * miles
+    }
+
+    String getCentenas() {
+        def centenas = (int) ((value % 1000) / 100)
+
+        switch (centenas) {
+            case 0:
+                ""
+                break
             case 1..3:
-                units = "I" * remainingDigits
+                "C" * centenas
                 break
             case 4:
-                units = "IV"
+                "CD"
                 break
             case 5..8:
-                units = "V" + "I" * (remainingDigits - 5)
+                "D" + "C" * (centenas - 5)
                 break
             case 9:
-                units = "IX"
+                "CM"
                 break
+            default:
+                "ERROR"
         }
+    }
 
-        return units
+    String getDecenas() {
+        def tens = (int) ((value % 100) / 10)
+
+        switch (tens) {
+            case 0:
+                ""
+                break
+            case 1..3:
+                "X" * tens
+                break
+            case 4:
+                "XL"
+                break
+            case 5..8:
+                "L" + "X" * (tens - 5)
+                break
+            case 9:
+                "XC"
+                break
+            default:
+                "ERROR"
+        }
+    }
+
+    String getRomanUnits() {
+        def remainingDigits = value % 10
+
+        switch (remainingDigits) {
+            case 1..3:
+                "I" * remainingDigits
+                break
+            case 4:
+                "IV"
+                break
+            case 5..8:
+                "V" + "I" * (remainingDigits - 5)
+                break
+            case 9:
+                "IX"
+                break
+            default:
+                ""
+        }
     }
 }
